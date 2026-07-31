@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Check bundle size (JS gzip ≤ 60 KB)
+        run: |
+          TOTAL=0
+          for f in $(find build/_app/immutable -type f -name "*.js"); do
+            [ -f "$f" ] && SIZE=$(gzip -c "$f" | wc -c) && TOTAL=$((TOTAL + SIZE))
+          done
+          echo "Total JS gzip: ${TOTAL} bytes"
+          if [ $TOTAL -gt 61440 ]; then
+            echo "❌ Bundle JS gzip ${TOTAL}B excede o limite de 60 KB (61440B)"
+            exit 1
+          fi
+          echo "✅ Bundle JS gzip ${TOTAL}B dentro do limite de 60 KB"

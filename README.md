@@ -23,7 +23,7 @@ https://drive.google.com/drive/folders/1ON6KHoxZt2Mr8pSWQ_jZ_YXR8qBiVDjt
 ## Status
 
 - Docs: v0.1.0 aprovada
-- Código: pendente — próximo passo é Sprint 0 (scaffold + CI)
+- Código: Sprint 0 concluído — scaffold SvelteKit + adapter-static + PWA + CI
 
 ## Regras
 
@@ -31,3 +31,16 @@ https://drive.google.com/drive/folders/1ON6KHoxZt2Mr8pSWQ_jZ_YXR8qBiVDjt
 2. Toda decisão nova entra em docs/06-registro-decisoes.md como C-nnn.
 3. Bundle-alvo JS gzip inicial: ≤ 60 KB (bloqueia PR se ultrapassar).
 4. Autoria: Claude (Anthropic), a pedido de Rafael Versutti Noetzold.
+
+## Desenvolvimento
+
+```sh
+npm install
+npm run dev       # servidor de desenvolvimento
+npm run build     # build de produção (gera /build)
+npm run preview   # preview do build de produção
+```
+
+Adapter: `@sveltejs/adapter-static` (site estático em `/build`, com
+`fallback: index.html` para SPA offline-first). PWA via
+`vite-plugin-pwa` (service worker + manifest gerados no build).
