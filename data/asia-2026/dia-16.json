@@ -1,0 +1,97 @@
+{
+	"id": "dia-16",
+	"date": "2026-11-20",
+	"dayNumber": 16,
+	"title": "Ao Nang → Phi Phi",
+	"location": "Phi Phi",
+	"country": "Tailândia",
+	"energyRequired": "medium",
+	"contingencies": [
+		{
+			"level": "A",
+			"label": "A — tudo",
+			"description": "Roteiro completo"
+		},
+		{
+			"level": "B",
+			"label": "B — sem viewpoint",
+			"description": "Roteiro sem Viewpoint"
+		},
+		{
+			"level": "C",
+			"label": "C — fica em Ao Nang",
+			"description": "Dia em Ao Nang (Railay ou praia local)"
+		}
+	],
+	"activities": [
+		{
+			"id": "dia-16-a1",
+			"title": "Ferry matinal Ao Nang → Phi Phi",
+			"contingency": [
+				"A",
+				"B"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-16-a2",
+			"title": "Malas grandes ficam no J Hotel",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-16-a3",
+			"title": "Viewpoint Phi Phi",
+			"contingency": [
+				"A"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-16-a4",
+			"title": "Loh Dalum Beach",
+			"contingency": [
+				"A",
+				"B"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-16-a5",
+			"title": "Noite leve — dormir cedo",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-16-a6",
+			"title": "Dia em Ao Nang (Railay ou praia local)",
+			"contingency": [
+				"C"
+			],
+			"status": "confirmed"
+		}
+	],
+	"transports": [
+		{
+			"id": "dia-16-t1",
+			"time": "manhã",
+			"type": "ferry",
+			"from": "Ao Nang",
+			"to": "Phi Phi",
+			"status": "pending"
+		}
+	],
+	"accommodation": {
+		"name": "Donchukit",
+		"location": "Phi Phi",
+		"status": "paid"
+	}
+}

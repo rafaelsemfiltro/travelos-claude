@@ -1,0 +1,82 @@
+{
+	"id": "dia-14",
+	"date": "2026-11-18",
+	"dayNumber": 14,
+	"title": "Tianmen + Grand Canyon",
+	"location": "Wulingyuan/Zhangjiajie",
+	"country": "China",
+	"energyRequired": "high",
+	"contingencies": [
+		{
+			"level": "A",
+			"label": "A — tour completo",
+			"description": "Tour completo — Tianmen + Grand Canyon"
+		},
+		{
+			"level": "B",
+			"label": "B — apenas um",
+			"description": "Só Tianmen ou só Grand Canyon"
+		},
+		{
+			"level": "C",
+			"label": "C — descanso",
+			"description": "Descanso — amanhã é o dia mais frágil"
+		}
+	],
+	"activities": [
+		{
+			"id": "dia-14-a1",
+			"title": "Tour privado combinado (~10h)",
+			"contingency": [
+				"A",
+				"B"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-14-a2",
+			"title": "Tianmen Mountain pela manhã",
+			"contingency": [
+				"A",
+				"B"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-14-a3",
+			"title": "Almoço",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-14-a4",
+			"title": "Grand Canyon à tarde",
+			"contingency": [
+				"A",
+				"B"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-14-a5",
+			"title": "Descanso no hotel",
+			"contingency": [
+				"C"
+			],
+			"status": "confirmed"
+		}
+	],
+	"transports": [],
+	"accommodation": {
+		"name": "Qianshan Moon",
+		"location": "Wulingyuan",
+		"status": "reserved"
+	},
+	"alerts": [
+		"Passaporte obrigatório; confirmar por escrito que ambos cabem no mesmo produto e política de atraso"
+	]
+}

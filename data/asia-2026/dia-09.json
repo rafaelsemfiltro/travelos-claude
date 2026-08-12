@@ -1,0 +1,97 @@
+{
+	"id": "dia-09",
+	"date": "2026-11-13",
+	"dayNumber": 9,
+	"title": "Hanói → Kunming → Chongqing",
+	"location": "Chongqing",
+	"country": "Vietnã/China",
+	"energyRequired": "low",
+	"contingencies": [
+		{
+			"level": "A",
+			"label": "A — voos pontuais",
+			"description": "Voos pontuais, sem intercorrências"
+		},
+		{
+			"level": "B",
+			"label": "B — atraso leve",
+			"description": "Atraso leve em algum trecho"
+		},
+		{
+			"level": "C",
+			"label": "C — atraso grave",
+			"description": "Atraso grave ou perda de conexão"
+		}
+	],
+	"activities": [
+		{
+			"id": "dia-09-a1",
+			"title": "Manhã livre obrigatória",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-09-a2",
+			"time": "16:15",
+			"title": "MU9606 HAN → KMG",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-09-a3",
+			"time": "22:20",
+			"title": "MU5450 KMG → CKG",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-09-a4",
+			"time": "23:50",
+			"title": "Pouso; check-in de madrugada no Ting",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		}
+	],
+	"transports": [
+		{
+			"id": "dia-09-t1",
+			"time": "16:15",
+			"type": "flight",
+			"from": "Hanói (HAN)",
+			"to": "Kunming (KMG)",
+			"code": "MU9606",
+			"status": "paid"
+		},
+		{
+			"id": "dia-09-t2",
+			"time": "22:20",
+			"type": "flight",
+			"from": "Kunming (KMG)",
+			"to": "Chongqing (CKG)",
+			"code": "MU5450",
+			"status": "paid"
+		}
+	],
+	"accommodation": {
+		"name": "Ting Riverview",
+		"location": "Chongqing",
+		"status": "reserved",
+		"notes": "check-in de madrugada"
+	}
+}

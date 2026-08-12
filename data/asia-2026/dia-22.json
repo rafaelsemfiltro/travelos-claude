@@ -1,0 +1,98 @@
+{
+	"id": "dia-22",
+	"date": "2026-11-26",
+	"dayNumber": 22,
+	"title": "Chiang Mai → Khon Kaen → Bangkok",
+	"location": "Bangkok",
+	"country": "Tailândia",
+	"energyRequired": "low",
+	"contingencies": [
+		{
+			"level": "A",
+			"label": "A — no time",
+			"description": "Tudo no horário previsto"
+		},
+		{
+			"level": "B",
+			"label": "B — pequeno atraso",
+			"description": "Pequeno atraso em algum trecho"
+		},
+		{
+			"level": "C",
+			"label": "C — atraso significativo",
+			"description": "Atraso significativo"
+		}
+	],
+	"activities": [
+		{
+			"id": "dia-22-a1",
+			"time": "10:00",
+			"title": "CNX → KKC",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-22-a2",
+			"title": "Self-transfer 3h em KKC",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-22-a3",
+			"time": "14:05",
+			"title": "KKC → DMK",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-22-a4",
+			"title": "Check-in Furama Silom",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		}
+	],
+	"transports": [
+		{
+			"id": "dia-22-t1",
+			"time": "10:00",
+			"type": "flight",
+			"from": "Chiang Mai (CNX)",
+			"to": "Khon Kaen (KKC)",
+			"code": "FD5502",
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-22-t2",
+			"time": "14:05",
+			"type": "flight",
+			"from": "Khon Kaen (KKC)",
+			"to": "Bangkok (DMK)",
+			"code": "FD3255",
+			"status": "confirmed"
+		}
+	],
+	"accommodation": {
+		"name": "Furama Silom",
+		"location": "Bangkok",
+		"status": "reserved"
+	},
+	"alerts": [
+		"Não confirmar 'almoço na cidade' sem validar desembarque, segurança, trânsito e horário-limite"
+	]
+}

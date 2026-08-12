@@ -1,0 +1,80 @@
+{
+	"id": "dia-12",
+	"date": "2026-11-16",
+	"dayNumber": 12,
+	"title": "Furong → Wulingyuan",
+	"location": "Furong/Wulingyuan",
+	"country": "China",
+	"energyRequired": "medium",
+	"contingencies": [
+		{
+			"level": "A",
+			"label": "A — tudo",
+			"description": "Roteiro completo com barco"
+		},
+		{
+			"level": "B",
+			"label": "B — sem passeio de barco",
+			"description": "Roteiro sem passeio de barco"
+		},
+		{
+			"level": "C",
+			"label": "C — só transfer",
+			"description": "Apenas transfer para Wulingyuan"
+		}
+	],
+	"activities": [
+		{
+			"id": "dia-12-a1",
+			"title": "Vila e cachoeira cedo",
+			"contingency": [
+				"A",
+				"B"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-12-a2",
+			"title": "Passarelas",
+			"contingency": [
+				"A",
+				"B"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-12-a3",
+			"title": "Passeio de barco",
+			"contingency": [
+				"A"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-12-a4",
+			"title": "Transfer para Qianshan Moon Hotel",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		}
+	],
+	"transports": [
+		{
+			"id": "dia-12-t1",
+			"time": "tarde",
+			"type": "other",
+			"from": "Furong",
+			"to": "Wulingyuan",
+			"code": "transfer",
+			"status": "pending"
+		}
+	],
+	"accommodation": {
+		"name": "Qianshan Moon",
+		"location": "Wulingyuan",
+		"status": "reserved"
+	}
+}

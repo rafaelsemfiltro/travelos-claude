@@ -1,0 +1,64 @@
+{
+	"id": "dia-24",
+	"date": "2026-11-28",
+	"dayNumber": 24,
+	"title": "Bangkok (despedida)",
+	"location": "Bangkok",
+	"country": "Tailândia",
+	"energyRequired": "medium",
+	"contingencies": [
+		{
+			"level": "A",
+			"label": "A — Chatuchak + escolha noturna",
+			"description": "Chatuchak + escolha noturna"
+		},
+		{
+			"level": "B",
+			"label": "B — mercado leve",
+			"description": "Mercado leve + despedida simples"
+		},
+		{
+			"level": "C",
+			"label": "C — descanso",
+			"description": "Descanso — voo amanhã cedo"
+		}
+	],
+	"activities": [
+		{
+			"id": "dia-24-a1",
+			"title": "Chatuchak Market manhã",
+			"contingency": [
+				"A",
+				"B"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-24-a2",
+			"title": "Soi Nana / Yaowarat / Rooftop — escolher um",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-24-a3",
+			"title": "RCA",
+			"contingency": [
+				"A"
+			],
+			"status": "optional"
+		}
+	],
+	"transports": [],
+	"accommodation": {
+		"name": "Furama Silom",
+		"location": "Bangkok",
+		"status": "reserved"
+	},
+	"alerts": [
+		"Definir entre Silom LGBT, Yaowarat/Soi Nana, rooftop ou RCA — sem tentar fazer tudo"
+	]
+}

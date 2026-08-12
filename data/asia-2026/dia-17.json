@@ -1,0 +1,107 @@
+{
+	"id": "dia-17",
+	"date": "2026-11-21",
+	"dayNumber": 17,
+	"title": "Phi Phi — Longtail Privado",
+	"location": "Phi Phi",
+	"country": "Tailândia",
+	"energyRequired": "high",
+	"contingencies": [
+		{
+			"level": "A",
+			"label": "A — acordou até 6h30 bem",
+			"description": "Acordou até 6h30 bem — saída cedo, rota completa"
+		},
+		{
+			"level": "B",
+			"label": "B — acordou 8h–9h, leve ressaca",
+			"description": "Acordou 8h–9h, leve ressaca — avisar capitão, saída 9h"
+		},
+		{
+			"level": "C",
+			"label": "C — ressaca forte",
+			"description": "Ressaca forte após meio-dia — praia e recuperação"
+		}
+	],
+	"activities": [
+		{
+			"id": "dia-17-a1",
+			"time": "06:30",
+			"title": "Saída cedo — longtail privado",
+			"contingency": [
+				"A"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-17-a2",
+			"title": "Maya Bay (desembarque por Loh Samah + taxa parque separada)",
+			"contingency": [
+				"A",
+				"B"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-17-a3",
+			"title": "Pileh Lagoon",
+			"contingency": [
+				"A",
+				"B"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-17-a4",
+			"title": "Bamboo Island",
+			"contingency": [
+				"A"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-17-a5",
+			"title": "Viking Cave",
+			"contingency": [
+				"A"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-17-a6",
+			"time": "09:00",
+			"title": "Saída 9h, versão reduzida",
+			"contingency": [
+				"B"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-17-a7",
+			"title": "Festa apenas após o passeio",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-17-a8",
+			"title": "Praia/recuperação",
+			"contingency": [
+				"C"
+			],
+			"status": "confirmed"
+		}
+	],
+	"transports": [],
+	"accommodation": {
+		"name": "Donchukit",
+		"location": "Phi Phi",
+		"status": "paid"
+	},
+	"alerts": [
+		"Maya Bay: não nadar na praia principal; taxa de parque separada. Reconfirmar regras"
+	]
+}

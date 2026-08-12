@@ -1,0 +1,90 @@
+{
+	"id": "dia-03",
+	"date": "2026-11-07",
+	"dayNumber": 3,
+	"title": "Bangkok → Hanói",
+	"location": "Bangkok/Hanói",
+	"country": "Tailândia/Vietnã",
+	"energyRequired": "low",
+	"contingencies": [
+		{
+			"level": "A",
+			"label": "A — sem atrasos",
+			"description": "Sem atrasos — conexão tranquila"
+		},
+		{
+			"level": "B",
+			"label": "B — atraso leve em BKK",
+			"description": "Atraso leve em BKK — ainda dá tempo para o transfer"
+		},
+		{
+			"level": "C",
+			"label": "C — atraso grave em BKK",
+			"description": "Atraso grave em BKK — conexão para DMK em risco"
+		}
+	],
+	"activities": [
+		{
+			"id": "dia-03-a1",
+			"time": "11:40",
+			"title": "Pouso em BKK",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-03-a2",
+			"title": "Transfer BKK → DMK (aeroportos distintos)",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-03-a3",
+			"time": "18:30",
+			"title": "Voo AirAsia DMK → HAN",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-03-a4",
+			"time": "21:30",
+			"title": "Chegada ao Little Diamond Hotel",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		}
+	],
+	"transports": [
+		{
+			"id": "dia-03-t1",
+			"time": "18:30",
+			"type": "flight",
+			"from": "Bangkok (DMK)",
+			"to": "Hanói (HAN)",
+			"code": "AirAsia",
+			"status": "confirmed"
+		}
+	],
+	"accommodation": {
+		"name": "Little Diamond Hotel",
+		"location": "Hanói",
+		"status": "reserved"
+	},
+	"alerts": [
+		"DMK e BKK são aeroportos distintos — não é conexão protegida"
+	]
+}

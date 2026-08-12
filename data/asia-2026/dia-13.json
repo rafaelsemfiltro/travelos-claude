@@ -1,0 +1,74 @@
+{
+	"id": "dia-13",
+	"date": "2026-11-17",
+	"dayNumber": 13,
+	"title": "Zhangjiajie National Forest Park",
+	"location": "Wulingyuan",
+	"country": "China",
+	"energyRequired": "high",
+	"contingencies": [
+		{
+			"level": "A",
+			"label": "A — percurso completo",
+			"description": "Percurso completo incluindo Yangjiajie"
+		},
+		{
+			"level": "B",
+			"label": "B — sem Yangjiajie",
+			"description": "Percurso sem Yangjiajie"
+		},
+		{
+			"level": "C",
+			"label": "C — só Yuanjiajie",
+			"description": "Apenas Yuanjiajie / Avatar Mountains"
+		}
+	],
+	"activities": [
+		{
+			"id": "dia-13-a1",
+			"title": "Yuanjiajie / Avatar Mountains",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-13-a2",
+			"title": "Bailong Elevator",
+			"contingency": [
+				"A",
+				"B"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-13-a3",
+			"title": "Tianzi Mountain",
+			"contingency": [
+				"A",
+				"B"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-13-a4",
+			"title": "Yangjiajie",
+			"contingency": [
+				"A"
+			],
+			"status": "optional"
+		}
+	],
+	"transports": [],
+	"accommodation": {
+		"name": "Qianshan Moon",
+		"location": "Wulingyuan",
+		"status": "reserved"
+	},
+	"alerts": [
+		"Confirmar o que o ingresso combo cobre"
+	],
+	"notes": "Avaliar percurso invertido para reduzir filas"
+}

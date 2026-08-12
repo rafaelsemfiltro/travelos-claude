@@ -1,0 +1,85 @@
+{
+	"id": "dia-25",
+	"date": "2026-11-29",
+	"dayNumber": 25,
+	"title": "Bangkok → São Paulo",
+	"location": "Bangkok",
+	"country": "Tailândia/Brasil",
+	"energyRequired": "low",
+	"contingencies": [
+		{
+			"level": "A",
+			"label": "A — no time",
+			"description": "Tudo no horário previsto"
+		},
+		{
+			"level": "B",
+			"label": "B — pequeno atraso",
+			"description": "Pequeno atraso"
+		},
+		{
+			"level": "C",
+			"label": "C — atraso significativo",
+			"description": "Atraso significativo"
+		}
+	],
+	"activities": [
+		{
+			"id": "dia-25-a1",
+			"time": "06:30",
+			"title": "Check-out",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-25-a2",
+			"time": "07:00",
+			"title": "Saída ao BKK",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-25-a3",
+			"time": "10:10",
+			"title": "Turkish Airlines BKK → IST → GRU",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-25-a4",
+			"title": "Chegada São Paulo 30/11 ~4h10",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		}
+	],
+	"transports": [
+		{
+			"id": "dia-25-t1",
+			"time": "10:10",
+			"type": "flight",
+			"from": "Bangkok (BKK)",
+			"to": "São Paulo (GRU) via Istambul (IST)",
+			"code": "Turkish Airlines",
+			"status": "paid"
+		}
+	],
+	"alerts": [
+		"Saída ao aeroporto às 7h — não subestimar trânsito Bangkok"
+	]
+}

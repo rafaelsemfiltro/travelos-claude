@@ -1,0 +1,132 @@
+{
+	"id": "dia-10",
+	"date": "2026-11-14",
+	"dayNumber": 10,
+	"title": "Chongqing 8D",
+	"location": "Chongqing",
+	"country": "China",
+	"energyRequired": "high",
+	"contingencies": [
+		{
+			"level": "A",
+			"label": "A — tudo",
+			"description": "Roteiro completo"
+		},
+		{
+			"level": "B",
+			"label": "B — sem teleférico e drones",
+			"description": "Roteiro sem teleférico do Yangtzé e sem show de drones"
+		},
+		{
+			"level": "C",
+			"label": "C — só Hotpot + Hongya",
+			"description": "Apenas Hotpot e Hongya Cave"
+		}
+	],
+	"activities": [
+		{
+			"id": "dia-10-a1",
+			"title": "Liziba/Pavilhão Lansheng",
+			"contingency": [
+				"A",
+				"B"
+			],
+			"status": "confirmed",
+			"location": {
+				"name": "Liziba",
+				"nameChinese": "李子坝"
+			}
+		},
+		{
+			"id": "dia-10-a2",
+			"title": "Kuixinglou",
+			"contingency": [
+				"A",
+				"B"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-10-a3",
+			"title": "Hotpot almoço",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-10-a4",
+			"title": "Raffles City + DJI Store — compra Osmo Pocket 3",
+			"contingency": [
+				"A",
+				"B"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-10-a5",
+			"title": "Baixiangju: entrar no 15º, sair no 1º",
+			"contingency": [
+				"A",
+				"B"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-10-a6",
+			"title": "Teleférico do Yangtzé",
+			"contingency": [
+				"A"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-10-a7",
+			"title": "Nanshan BBQ pôr do sol",
+			"contingency": [
+				"A",
+				"B"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-10-a8",
+			"title": "Show de drones Nanbin Road",
+			"contingency": [
+				"A"
+			],
+			"status": "optional",
+			"notes": "se confirmado"
+		},
+		{
+			"id": "dia-10-a9",
+			"title": "Ponte Qiansimen",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-10-a10",
+			"title": "Hongya Cave antes de apagar luzes",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed",
+			"location": {
+				"name": "Hongya Cave",
+				"nameChinese": "洪崖洞"
+			}
+		}
+	],
+	"transports": [],
+	"alerts": [
+		"Usar Amap (高德地图) com nomes chineses; confirmar show de drones e horário luzes Hongya"
+	]
+}

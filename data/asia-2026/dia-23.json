@@ -1,0 +1,92 @@
+{
+	"id": "dia-23",
+	"date": "2026-11-27",
+	"dayNumber": 23,
+	"title": "Bangkok",
+	"location": "Bangkok",
+	"country": "Tailândia",
+	"energyRequired": "medium",
+	"contingencies": [
+		{
+			"level": "A",
+			"label": "A — tudo",
+			"description": "Roteiro completo"
+		},
+		{
+			"level": "B",
+			"label": "B — sem Wat Arun",
+			"description": "Roteiro sem Wat Arun"
+		},
+		{
+			"level": "C",
+			"label": "C — só Yaowarat noite",
+			"description": "Apenas Yaowarat à noite"
+		}
+	],
+	"activities": [
+		{
+			"id": "dia-23-a1",
+			"title": "Grande Palácio + Wat Pho",
+			"contingency": [
+				"A",
+				"B"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-23-a2",
+			"title": "Barco nos canais",
+			"contingency": [
+				"A",
+				"B"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-23-a3",
+			"title": "Wat Arun",
+			"contingency": [
+				"A",
+				"B"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-23-a4",
+			"title": "Chatuchak",
+			"contingency": [
+				"A"
+			],
+			"status": "optional"
+		},
+		{
+			"id": "dia-23-a5",
+			"title": "Yaowarat (Chinatown) à noite",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-23-a6",
+			"title": "Silom LGBT",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		}
+	],
+	"transports": [],
+	"accommodation": {
+		"name": "Furama Silom",
+		"location": "Bangkok",
+		"status": "reserved"
+	},
+	"alerts": [
+		"Dress code nos templos; confirmar horários e custos"
+	]
+}

@@ -1,0 +1,82 @@
+{
+	"id": "dia-07",
+	"date": "2026-11-11",
+	"dayNumber": 7,
+	"title": "Vale Mường Hoa → Hanói",
+	"location": "Sa Pa/Hanói",
+	"country": "Vietnã",
+	"energyRequired": "high",
+	"contingencies": [
+		{
+			"level": "A",
+			"label": "A — seco + descansados + documentação ok",
+			"description": "Seco + descansados + documentação ok — moto independente"
+		},
+		{
+			"level": "B",
+			"label": "B — cansados ou condição incerta",
+			"description": "Cansados ou condição incerta — piloto local"
+		},
+		{
+			"level": "C",
+			"label": "C — chuva forte/neblina/exaustão",
+			"description": "Chuva forte/neblina/exaustão — sem moto; Sa Pa tranquilo"
+		}
+	],
+	"activities": [
+		{
+			"id": "dia-07-a1",
+			"title": "Aluguel de moto + rota Vale Mường Hoa (Viettrekking → mirante → Sa Sẻng → Y Linh Hồ → Lao Chải → ponte → Tả Van → retorno)",
+			"contingency": [
+				"A"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-07-a2",
+			"title": "Piloto local indicado pelo Viettrekking",
+			"contingency": [
+				"B"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-07-a3",
+			"title": "Cafés panorâmicos, centro de Sa Pa, massagem, mercado",
+			"contingency": [
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-07-a4",
+			"title": "Ônibus diurno de retorno a Hanói",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		}
+	],
+	"transports": [
+		{
+			"id": "dia-07-t1",
+			"time": "tarde",
+			"type": "bus",
+			"from": "Sa Pa",
+			"to": "Hanói",
+			"code": "Ônibus diurno",
+			"status": "pending",
+			"notes": "horário exato a confirmar"
+		}
+	],
+	"accommodation": {
+		"name": "Little Diamond Hotel",
+		"location": "Hanói",
+		"status": "reserved"
+	},
+	"alerts": [
+		"Critérios para alugar moto: tempo seco, ambos descansados, documentação legal, moto revisada"
+	]
+}

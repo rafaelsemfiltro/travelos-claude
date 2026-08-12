@@ -1,0 +1,130 @@
+{
+	"id": "dia-02",
+	"date": "2026-11-06",
+	"dayNumber": 2,
+	"title": "Istambul",
+	"location": "Istambul",
+	"country": "Turquia",
+	"energyRequired": "medium",
+	"contingencies": [
+		{
+			"level": "A",
+			"label": "A — saiu até 13h",
+			"description": "Saiu até 13h — roteiro completo"
+		},
+		{
+			"level": "B",
+			"label": "B — saiu 13h–14h",
+			"description": "Saiu 13h–14h — lanche rápido, Kadırga e Seven Hills"
+		},
+		{
+			"level": "C",
+			"label": "C — saiu depois das 14h",
+			"description": "Saiu depois das 14h — refeição e Seven Hills; sem hammam"
+		},
+		{
+			"level": "D",
+			"label": "D — ainda no aeroporto às 15h",
+			"description": "Ainda no aeroporto às 15h — permanecer no IST"
+		}
+	],
+	"activities": [
+		{
+			"id": "dia-02-a1",
+			"time": "11:45",
+			"title": "Pouso IST",
+			"contingency": [
+				"A",
+				"B",
+				"C",
+				"D"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-02-a2",
+			"time": "13:00",
+			"title": "Transfer a Sultanahmet",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-02-a3",
+			"time": "14:00",
+			"title": "Testi Kebabı",
+			"contingency": [
+				"A",
+				"B"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-02-a4",
+			"time": "15:00",
+			"title": "Kadırga Hamamı — entrada + kese + espuma",
+			"contingency": [
+				"A",
+				"B"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-02-a5",
+			"time": "17:00",
+			"title": "Seven Hills — pôr do sol e conteúdo",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-02-a6",
+			"time": "18:05",
+			"title": "Saída obrigatória ao IST",
+			"contingency": [
+				"A",
+				"B",
+				"C",
+				"D"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-02-a7",
+			"time": "22:15",
+			"title": "Voo para Bangkok",
+			"contingency": [
+				"A",
+				"B",
+				"C",
+				"D"
+			],
+			"status": "confirmed"
+		}
+	],
+	"transports": [
+		{
+			"id": "dia-02-t1",
+			"time": "22:15",
+			"type": "flight",
+			"from": "Istambul (IST)",
+			"to": "Bangkok (BKK)",
+			"code": "Turkish Airlines",
+			"status": "paid"
+		}
+	],
+	"accommodation": {
+		"name": "IST (aeroporto/trânsito)",
+		"location": "Istambul",
+		"status": "pending"
+	},
+	"alerts": [
+		"Reservar Seven Hills: mesa na borda, ~17h, sem aceitar link de pagamento não verificado"
+	]
+}

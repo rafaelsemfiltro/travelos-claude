@@ -1,0 +1,100 @@
+{
+	"id": "dia-18",
+	"date": "2026-11-22",
+	"dayNumber": 18,
+	"title": "Railay + The Grotto",
+	"location": "Railay/Ao Nang",
+	"country": "Tailândia",
+	"energyRequired": "medium",
+	"contingencies": [
+		{
+			"level": "A",
+			"label": "A — Railay + Grotto",
+			"description": "Railay + Phra Nang + The Grotto 18h30"
+		},
+		{
+			"level": "B",
+			"label": "B — Railay sem Grotto",
+			"description": "Railay + pôr do sol Railay West; sem Grotto"
+		},
+		{
+			"level": "C",
+			"label": "C — Ao Nang",
+			"description": "Ao Nang — praia e descanso"
+		}
+	],
+	"activities": [
+		{
+			"id": "dia-18-a1",
+			"title": "Ferry Phi Phi → Ao Nang",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-18-a2",
+			"title": "Banho/troca no J Hotel",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-18-a3",
+			"title": "Ao Nam Mao + barco privado → Railay",
+			"contingency": [
+				"A",
+				"B"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-18-a4",
+			"title": "Phra Nang Beach",
+			"contingency": [
+				"A",
+				"B"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-18-a5",
+			"time": "18:30",
+			"title": "The Grotto (canal oficial de não-hóspedes)",
+			"contingency": [
+				"A"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-18-a6",
+			"title": "Pôr do sol em Railay West + jantar simples",
+			"contingency": [
+				"B"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-18-a7",
+			"title": "Ao Nang praia/descanso",
+			"contingency": [
+				"C"
+			],
+			"status": "confirmed"
+		}
+	],
+	"transports": [],
+	"accommodation": {
+		"name": "J Hotel",
+		"location": "Ao Nang",
+		"status": "reserved"
+	},
+	"alerts": [
+		"The Grotto: reservar canal oficial não-hóspedes; planejar roupa, 2 barcos e retorno"
+	]
+}

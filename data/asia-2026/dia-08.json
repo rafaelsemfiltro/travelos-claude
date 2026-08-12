@@ -1,0 +1,81 @@
+{
+	"id": "dia-08",
+	"date": "2026-11-12",
+	"dayNumber": 8,
+	"title": "Hanói de Respiro",
+	"location": "Hanói",
+	"country": "Vietnã",
+	"energyRequired": "low",
+	"contingencies": [
+		{
+			"level": "A",
+			"label": "A — tudo",
+			"description": "Roteiro completo"
+		},
+		{
+			"level": "B",
+			"label": "B — sem Lago Oeste",
+			"description": "Roteiro sem Lago do Oeste"
+		},
+		{
+			"level": "C",
+			"label": "C — descanso total",
+			"description": "Dia de descanso total"
+		}
+	],
+	"activities": [
+		{
+			"id": "dia-08-a1",
+			"title": "Complexo Ba Đình (por fora — não entrar no mausoléu)",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-08-a2",
+			"title": "Palácio Presidencial + Pagode de Um Pilar + Casa de Palafitas",
+			"contingency": [
+				"A",
+				"B"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-08-a3",
+			"title": "Đồng Xuân market",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-08-a4",
+			"title": "Lago do Oeste",
+			"contingency": [
+				"A"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-08-a5",
+			"title": "Backup digital + massagem",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		}
+	],
+	"transports": [],
+	"accommodation": {
+		"name": "Little Diamond Hotel",
+		"location": "Hanói",
+		"status": "reserved"
+	}
+}

@@ -1,0 +1,128 @@
+{
+	"id": "dia-15",
+	"date": "2026-11-19",
+	"dayNumber": 15,
+	"title": "ZJJ → Changsha → Bangkok → Krabi",
+	"location": "Zhangjiajie/Changsha/Bangkok/Krabi",
+	"country": "China/Tailândia",
+	"energyRequired": "high",
+	"contingencies": [
+		{
+			"level": "A",
+			"label": "A — tudo pontual",
+			"description": "Todos os trechos pontuais"
+		},
+		{
+			"level": "B",
+			"label": "B — trem atrasado",
+			"description": "Trem atrasado — ainda dá tempo do FD481"
+		},
+		{
+			"level": "C",
+			"label": "C — perdeu FD481",
+			"description": "Perdeu o FD481 — replanejar"
+		}
+	],
+	"activities": [
+		{
+			"id": "dia-15-a1",
+			"title": "Trem cedo ZJJ West → Changsha South (长沙南站)",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-15-a2",
+			"title": "Maglev Changsha South → CSX",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-15-a3",
+			"time": "12:55",
+			"title": "FD481 CSX → DMK",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-15-a4",
+			"title": "Nova imigração/bagagem em DMK",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-15-a5",
+			"time": "18:45",
+			"title": "SL814 DMK → KBV",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-15-a6",
+			"time": "21:15",
+			"title": "Chegada ao J Hotel Ao Nang",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		}
+	],
+	"transports": [
+		{
+			"id": "dia-15-t1",
+			"time": "manhã",
+			"type": "train",
+			"from": "Zhangjiajie West",
+			"to": "Changsha South (长沙南站)",
+			"status": "critical",
+			"notes": "PENDENTE — NÃO aceitar estação central antiga"
+		},
+		{
+			"id": "dia-15-t2",
+			"time": "12:55",
+			"type": "flight",
+			"from": "Changsha (CSX)",
+			"to": "Bangkok (DMK)",
+			"code": "FD481",
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-15-t3",
+			"time": "18:45",
+			"type": "flight",
+			"from": "Bangkok (DMK)",
+			"to": "Krabi (KBV)",
+			"code": "SL814",
+			"status": "paid"
+		}
+	],
+	"accommodation": {
+		"name": "J Hotel",
+		"location": "Ao Nang",
+		"status": "reserved"
+	},
+	"alerts": [
+		"NÃO aceitar passagem para estação central antiga (只坐长沙南站). Viabilidade depende de trem real compatível"
+	]
+}

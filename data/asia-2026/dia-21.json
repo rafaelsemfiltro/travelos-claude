@@ -1,0 +1,84 @@
+{
+	"id": "dia-21",
+	"date": "2026-11-25",
+	"dayNumber": 21,
+	"title": "Loi Krathong",
+	"location": "Chiang Mai",
+	"country": "Tailândia",
+	"energyRequired": "medium",
+	"contingencies": [
+		{
+			"level": "A",
+			"label": "A — tudo",
+			"description": "Roteiro completo"
+		},
+		{
+			"level": "B",
+			"label": "B — sem Doi Suthep",
+			"description": "Roteiro sem Doi Suthep"
+		},
+		{
+			"level": "C",
+			"label": "C — só centro histórico",
+			"description": "Apenas centro histórico"
+		}
+	],
+	"activities": [
+		{
+			"id": "dia-21-a1",
+			"title": "Doi Suthep / cafés pela manhã",
+			"contingency": [
+				"A",
+				"B"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-21-a2",
+			"title": "Tha Phae Gate + desfile",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-21-a3",
+			"title": "Rio Ping",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-21-a4",
+			"title": "Templos iluminados",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-21-a5",
+			"title": "Centro histórico leve",
+			"contingency": [
+				"C"
+			],
+			"status": "confirmed"
+		}
+	],
+	"transports": [],
+	"accommodation": {
+		"name": "Casa Nimman",
+		"location": "Chiang Mai",
+		"status": "pending"
+	},
+	"alerts": [
+		"NÃO soltar lanterna aérea dentro da cidade; confirmar calendário oficial e noite de pico"
+	]
+}

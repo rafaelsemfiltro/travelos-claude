@@ -1,0 +1,87 @@
+{
+	"id": "dia-19",
+	"date": "2026-11-23",
+	"dayNumber": 19,
+	"title": "Ao Nang → Chiang Mai",
+	"location": "Chiang Mai",
+	"country": "Tailândia",
+	"energyRequired": "low",
+	"contingencies": [
+		{
+			"level": "A",
+			"label": "A — no time",
+			"description": "Tudo no horário previsto"
+		},
+		{
+			"level": "B",
+			"label": "B — pequeno atraso",
+			"description": "Pequeno atraso no voo"
+		},
+		{
+			"level": "C",
+			"label": "C — atraso significativo",
+			"description": "Atraso significativo no voo"
+		}
+	],
+	"activities": [
+		{
+			"id": "dia-19-a1",
+			"title": "Manhã leve bar de praia/café",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-19-a2",
+			"time": "16:00",
+			"title": "Saída ao aeroporto",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-19-a3",
+			"time": "19:35",
+			"title": "KBV → CNX FD3075",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-19-a4",
+			"time": "21:30",
+			"title": "Check-in Casa Nimman",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		}
+	],
+	"transports": [
+		{
+			"id": "dia-19-t1",
+			"time": "19:35",
+			"type": "flight",
+			"from": "Krabi (KBV)",
+			"to": "Chiang Mai (CNX)",
+			"code": "FD3075",
+			"status": "confirmed"
+		}
+	],
+	"accommodation": {
+		"name": "Casa Nimman",
+		"location": "Chiang Mai",
+		"status": "pending"
+	}
+}

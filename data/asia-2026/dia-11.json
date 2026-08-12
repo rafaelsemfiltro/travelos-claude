@@ -1,0 +1,111 @@
+{
+	"id": "dia-11",
+	"date": "2026-11-15",
+	"dayNumber": 11,
+	"title": "Cloud Eye → Furong",
+	"location": "Chongqing/Furong",
+	"country": "China",
+	"energyRequired": "medium",
+	"contingencies": [
+		{
+			"level": "A",
+			"label": "A — tudo",
+			"description": "Roteiro completo"
+		},
+		{
+			"level": "B",
+			"label": "B — roteiro reduzido",
+			"description": "Roteiro sem Wuli Stone Street"
+		},
+		{
+			"level": "C",
+			"label": "C — roteiro leve",
+			"description": "Roteiro leve, foco em chegar a Furong"
+		}
+	],
+	"activities": [
+		{
+			"id": "dia-11-a1",
+			"time": "09:00",
+			"title": "Cloud Eye",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed",
+			"location": {
+				"name": "Cloud Eye",
+				"nameChinese": "洪崖洞观景台"
+			}
+		},
+		{
+			"id": "dia-11-a2",
+			"title": "Trem Chongqing → Zhangjiajie West",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-11-a3",
+			"title": "Conexão para Furong Town",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-11-a4",
+			"title": "Wuli Stone Street",
+			"contingency": [
+				"A",
+				"B"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-11-a5",
+			"title": "Cachoeira de Furong",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-11-a6",
+			"title": "Vila iluminada noturna",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		}
+	],
+	"transports": [
+		{
+			"id": "dia-11-t1",
+			"time": "manhã",
+			"type": "train",
+			"from": "Chongqing (CKG)",
+			"to": "Zhangjiajie West",
+			"status": "critical",
+			"notes": "reconfirmar grade quando vendas abrirem"
+		}
+	],
+	"accommodation": {
+		"name": "Xuanyuan B&B",
+		"location": "Furong",
+		"status": "reserved"
+	},
+	"alerts": [
+		"Não assumir trem direto CKG→Furong; reconfirmar quando vendas abrirem"
+	]
+}

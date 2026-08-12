@@ -1,0 +1,69 @@
+{
+	"id": "dia-04",
+	"date": "2026-11-08",
+	"dayNumber": 4,
+	"title": "Ha Long Day-Trip",
+	"location": "Ha Long",
+	"country": "Vietnã",
+	"energyRequired": "high",
+	"contingencies": [
+		{
+			"level": "A",
+			"label": "A — bem descansado",
+			"description": "Bem descansado — passeio completo"
+		},
+		{
+			"level": "B",
+			"label": "B — cansado mas funcional",
+			"description": "Cansado mas funcional — cruzeiro sem kayak"
+		},
+		{
+			"level": "C",
+			"label": "C — exausto/clima ruim",
+			"description": "Exausto/clima ruim — dia livre em Hanói"
+		}
+	],
+	"activities": [
+		{
+			"id": "dia-04-a1",
+			"time": "07:30",
+			"title": "Pick-up no hotel",
+			"contingency": [
+				"A",
+				"B"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-04-a2",
+			"title": "Cruzeiro, almoço, caverna, Ti Top Island, kayak",
+			"contingency": [
+				"A",
+				"B"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-04-a3",
+			"time": "19:30",
+			"title": "Retorno",
+			"contingency": [
+				"A",
+				"B"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-04-a4",
+			"title": "Dia livre em Hanói (Old Quarter, museu)",
+			"contingency": [
+				"C"
+			],
+			"status": "confirmed"
+		}
+	],
+	"transports": [],
+	"alerts": [
+		"Escolher operador apenas 15–30 dias antes; confirmar regras de drone"
+	]
+}

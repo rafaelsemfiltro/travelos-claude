@@ -1,0 +1,107 @@
+{
+	"id": "dia-05",
+	"date": "2026-11-09",
+	"dayNumber": 5,
+	"title": "Hanói → Sa Pa",
+	"location": "Hanói/Sa Pa",
+	"country": "Vietnã",
+	"energyRequired": "medium",
+	"contingencies": [
+		{
+			"level": "A",
+			"label": "A — tudo",
+			"description": "Roteiro completo"
+		},
+		{
+			"level": "B",
+			"label": "B — sem Train Street",
+			"description": "Roteiro sem Train Street"
+		},
+		{
+			"level": "C",
+			"label": "C — leve/descanso",
+			"description": "Dia leve, ritmo de descanso"
+		}
+	],
+	"activities": [
+		{
+			"id": "dia-05-a1",
+			"title": "Old Quarter + Hồ Hoàn Kiếm",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-05-a2",
+			"title": "Egg coffee",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-05-a3",
+			"title": "Train Street (café licenciado)",
+			"contingency": [
+				"A",
+				"B"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-05-a4",
+			"title": "Templo da Literatura à tarde",
+			"contingency": [
+				"A",
+				"B"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-05-a5",
+			"title": "Bún chả — almoço (não jantar)",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-05-a6",
+			"time": "23:30",
+			"title": "Ônibus-cabine Hanói → Sa Pa",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		}
+	],
+	"transports": [
+		{
+			"id": "dia-05-t1",
+			"time": "23:30",
+			"type": "bus",
+			"from": "Hanói",
+			"to": "Sa Pa",
+			"code": "Ônibus-cabine",
+			"status": "pending"
+		}
+	],
+	"accommodation": {
+		"name": "Viettrekking Sapa",
+		"location": "Sa Pa",
+		"status": "reserved",
+		"notes": "check-in amanhã"
+	},
+	"alerts": [
+		"Train Street: confirmar trem com o café; não confiar em motoboy"
+	]
+}

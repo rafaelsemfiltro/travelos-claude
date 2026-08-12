@@ -1,0 +1,84 @@
+{
+	"id": "dia-06",
+	"date": "2026-11-10",
+	"dayNumber": 6,
+	"title": "Sa Pa: Fansipan",
+	"location": "Sa Pa",
+	"country": "Vietnã",
+	"energyRequired": "high",
+	"contingencies": [
+		{
+			"level": "A",
+			"label": "A — tempo bom e energia boa",
+			"description": "Tempo bom e energia boa — Fansipan cedo"
+		},
+		{
+			"level": "B",
+			"label": "B — cansados mas funcionais",
+			"description": "Cansados mas funcionais — saída 8h30–9h"
+		},
+		{
+			"level": "C",
+			"label": "C — mau tempo/exaustão",
+			"description": "Mau tempo/exaustão — vale no dia 10; Fansipan no dia 11"
+		}
+	],
+	"activities": [
+		{
+			"id": "dia-06-a1",
+			"title": "Chegada cedo de Sa Pa (guardar malas)",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-06-a2",
+			"title": "Fansipan teleférico",
+			"contingency": [
+				"A",
+				"B"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-06-a3",
+			"title": "Banho Red Dao no Dao's Center",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-06-a4",
+			"title": "Mercado noturno de Sa Pa",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-06-a5",
+			"title": "Vale Mường Hoa — reservar Fansipan para dia 11",
+			"contingency": [
+				"C"
+			],
+			"status": "confirmed"
+		}
+	],
+	"transports": [],
+	"accommodation": {
+		"name": "Viettrekking Sapa",
+		"location": "Sa Pa",
+		"status": "reserved"
+	},
+	"alerts": [
+		"Verificar visibilidade com hotel/fonte local, não apenas o céu da cidade; cancelamento grátis até 10/out"
+	]
+}

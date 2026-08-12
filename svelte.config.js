@@ -11,7 +11,11 @@ const config = {
 			fallback: 'index.html',
 			precompress: false,
 			strict: false
-		})
+		}),
+		prerender: {
+			// #emergency is a placeholder anchor for the static emergency sheet (MVP-0)
+			handleMissingId: 'ignore'
+		}
 	}
 };
 

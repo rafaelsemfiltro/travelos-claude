@@ -1,0 +1,74 @@
+{
+	"id": "dia-20",
+	"date": "2026-11-24",
+	"dayNumber": 20,
+	"title": "Yi Peng / CAD",
+	"location": "Chiang Mai",
+	"country": "Tailândia",
+	"energyRequired": "medium",
+	"contingencies": [
+		{
+			"level": "A",
+			"label": "A — ingresso VIP confirmado",
+			"description": "Ingresso VIP confirmado — soltura completa"
+		},
+		{
+			"level": "B",
+			"label": "B — ingresso básico",
+			"description": "Ingresso básico — sem área VIP"
+		},
+		{
+			"level": "C",
+			"label": "C — sem ingresso",
+			"description": "Sem ingresso — evento local do Loi Krathong"
+		}
+	],
+	"activities": [
+		{
+			"id": "dia-20-a1",
+			"title": "Manhã leve em Nimman",
+			"contingency": [
+				"A",
+				"B",
+				"C"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-20-a2",
+			"time": "13:00",
+			"title": "Embarque no CMECC",
+			"contingency": [
+				"A",
+				"B"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-20-a3",
+			"title": "Yi Peng VIP — soltura em massa",
+			"contingency": [
+				"A",
+				"B"
+			],
+			"status": "confirmed"
+		},
+		{
+			"id": "dia-20-a4",
+			"title": "Loi Krathong alternativo local",
+			"contingency": [
+				"C"
+			],
+			"status": "confirmed"
+		}
+	],
+	"transports": [],
+	"accommodation": {
+		"name": "Casa Nimman",
+		"location": "Chiang Mai",
+		"status": "pending"
+	},
+	"alerts": [
+		"Ingresso VIP pago; confirmar calendário oficial e noite de pico"
+	]
+}
