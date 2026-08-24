@@ -37,6 +37,102 @@ export function sortedTransports(day: TripDay): Transport[] {
 	return [...day.transports].sort(byTime);
 }
 
+export const ACTIVITY_PRIORITY_LABEL: Record<ActivityStatus, string> = {
+	confirmed: 'Essencial',
+	pending: 'A confirmar',
+	optional: 'Opcional',
+	cancelled: 'Cancelado'
+};
+
+export const TRANSPORT_PRIORITY_LABEL: Record<Transport['status'], string> = {
+	paid: 'Essencial',
+	confirmed: 'Essencial',
+	pending: 'A confirmar',
+	critical: 'Hora-limite'
+};
+
+export const DEADLINE_CONSEQUENCE: Record<Transport['type'], string> = {
+	flight: 'Perder o embarque compromete toda a conexão do dia.',
+	train: 'Perder o trem obriga replanejar a rota do dia.',
+	ferry: 'A balsa não espera — perder o horário atrasa a travessia.',
+	'cable-car': 'Última subida do teleférico — não há alternativa depois.',
+	bus: 'O ônibus não espera — perder o horário atrasa o trajeto.',
+	taxi: 'Horário combinado — atraso pode custar a corrida.',
+	metro: 'Intervalo apertado — atraso compromete a conexão seguinte.',
+	other: 'Horário crítico do dia — evite atrasos.'
+};
+
+export interface TimelineEntry {
+	id: string;
+	time?: string;
+	title: string;
+	subtitle?: string;
+	kind: 'activity' | 'transport';
+	statusLabel: string;
+	activity?: Activity;
+	transport?: Transport;
+}
+
+/** Chronological merge of a day's activities (for the given plan) and transports. */
+export function mergedTimeline(day: TripDay, level: ContingencyLevel): TimelineEntry[] {
+	const acts: TimelineEntry[] = activitiesForContingency(day, level).map((a) => ({
+		id: a.id,
+		time: a.time,
+		title: a.title,
+		subtitle: a.location?.name,
+		kind: 'activity',
+		statusLabel: ACTIVITY_PRIORITY_LABEL[a.status],
+		activity: a
+	}));
+	const trans: TimelineEntry[] = sortedTransports(day).map((t) => ({
+		id: t.id,
+		time: t.time,
+		title: `${TRANSPORT_ICON[t.type]} ${t.from} → ${t.to}`,
+		subtitle: t.code,
+		kind: 'transport',
+		statusLabel: TRANSPORT_PRIORITY_LABEL[t.status],
+		transport: t
+	}));
+	return [...acts, ...trans].sort(byTime);
+}
+
+export function nowHHMM(): string {
+	const d = new Date();
+	return `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
+}
+
+/** The next timed entry at or after `now`, falling back to the day's last timed entry. */
+export function nextAction(
+	day: TripDay,
+	level: ContingencyLevel,
+	now: string = nowHHMM()
+): (TimelineEntry & { isPast: boolean }) | undefined {
+	const timed = mergedTimeline(day, level).filter((e) => e.time);
+	if (!timed.length) return undefined;
+	const upcoming = timed.find((e) => e.time! >= now);
+	if (upcoming) return { ...upcoming, isPast: false };
+	return { ...timed[timed.length - 1], isPast: true };
+}
+
+const HARD_DEADLINE_TYPES = new Set<Transport['type']>(['flight', 'train', 'ferry', 'cable-car']);
+
+/** The day's rigid, must-not-miss transport moment, if any. */
+export function protectedDeadline(day: TripDay, level: ContingencyLevel): TimelineEntry | undefined {
+	const timed = mergedTimeline(day, level).filter((e) => e.time && e.transport);
+	const critical = timed.find((e) => e.transport?.status === 'critical');
+	if (critical) return critical;
+	return timed.find((e) => e.transport && HARD_DEADLINE_TYPES.has(e.transport.type));
+}
+
+/** Coarse day-level status derived from its transports/activities/accommodation. */
+export function dayStatusLabel(day: TripDay): string {
+	if (day.transports.some((t) => t.status === 'critical')) return 'atenção';
+	if (day.transports.some((t) => t.status === 'pending')) return 'pendente';
+	if (day.accommodation?.status === 'pending') return 'pendente';
+	if (day.activities.some((a) => a.status === 'pending')) return 'pendente';
+	return 'confirmado';
+}
+
 export function todayISO(): string {
 	const d = new Date();
 	const y = d.getFullYear();

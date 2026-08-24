@@ -32,7 +32,7 @@
 		display: flex;
 		height: calc(var(--nav-height) + var(--safe-bottom));
 		padding-bottom: var(--safe-bottom);
-		background: rgba(15, 23, 42, 0.88);
+		background: rgba(255, 255, 255, 0.88);
 		backdrop-filter: blur(14px);
 		border-top: 1px solid var(--color-border);
 	}

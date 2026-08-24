@@ -1,6 +1,7 @@
 // claude
 import { error } from '@sveltejs/kit';
 import { allDays, getDayById } from '$lib/data/days';
+import { trip } from '$lib/data/trip';
 import type { EntryGenerator } from './$types';
 
 export const prerender = true;
@@ -13,5 +14,5 @@ export function load({ params }: { params: { id: string } }) {
 	const index = allDays.findIndex((d) => d.id === day.id);
 	const previous = index > 0 ? allDays[index - 1] : undefined;
 	const next = index >= 0 && index < allDays.length - 1 ? allDays[index + 1] : undefined;
-	return { day, previous, next };
+	return { day, previous, next, trip };
 }

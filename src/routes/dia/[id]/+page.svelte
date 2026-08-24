@@ -2,8 +2,9 @@
 <script lang="ts">
 	import ContingencyToggle from '$lib/components/ContingencyToggle.svelte';
 	import DayContent from '$lib/components/DayContent.svelte';
+	import DeadlineCard from '$lib/components/DeadlineCard.svelte';
 	import { loadDayState, saveDayState } from '$lib/db/dayState';
-	import { ENERGY_BADGE } from '$lib/logic';
+	import { ENERGY_BADGE, dayStatusLabel, protectedDeadline } from '$lib/logic';
 	import type { ContingencyLevel } from '$lib/types';
 	import type { PageData } from './$types';
 	import { untrack } from 'svelte';
@@ -13,6 +14,7 @@
 	let day = $derived(data.day);
 
 	let active = $state<ContingencyLevel>(untrack(() => data.day.contingencies[0]?.level ?? 'A'));
+	let deadline = $derived(protectedDeadline(day, active));
 
 	$effect(() => {
 		let cancelled = false;
@@ -37,6 +39,7 @@
 
 <main>
 	<a class="back" href="{base}/roteiro">← Roteiro</a>
+	<p class="eyebrow">{data.trip.name} · dia {day.dayNumber} · {dayStatusLabel(day)}</p>
 	<p class="date">
 		D{String(day.dayNumber).padStart(2, '0')} · {day.date}
 		<span class="energy" title="energia: {day.energyRequired}">{ENERGY_BADGE[day.energyRequired]}</span>
@@ -46,6 +49,10 @@
 
 	{#if day.notes}
 		<p class="day-notes">📝 {day.notes}</p>
+	{/if}
+
+	{#if deadline}
+		<DeadlineCard entry={deadline} />
 	{/if}
 
 	<ContingencyToggle contingencies={day.contingencies} {active} onSelect={select} />
@@ -76,8 +83,16 @@
 		font-size: 0.85rem;
 		font-weight: 600;
 	}
+	.eyebrow {
+		margin: 0.9rem 0 0;
+		font-size: 0.72rem;
+		color: var(--color-text-subtle);
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+	}
 	.date {
-		margin: 0.75rem 0 0;
+		margin: 0.25rem 0 0;
 		font-size: 0.75rem;
 		color: var(--color-accent-text);
 		font-weight: 700;

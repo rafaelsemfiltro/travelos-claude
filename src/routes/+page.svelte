@@ -2,8 +2,18 @@
 <script lang="ts">
 	import ContingencyToggle from '$lib/components/ContingencyToggle.svelte';
 	import DayContent from '$lib/components/DayContent.svelte';
+	import DeadlineCard from '$lib/components/DeadlineCard.svelte';
 	import { loadDayState, saveDayState } from '$lib/db/dayState';
-	import { findDayByDate, suggestContingency, todayISO, tripProgress, WAKE_EMOJI } from '$lib/logic';
+	import {
+		dayStatusLabel,
+		findDayByDate,
+		nextAction,
+		protectedDeadline,
+		suggestContingency,
+		todayISO,
+		tripProgress,
+		WAKE_EMOJI
+	} from '$lib/logic';
 	import type { ContingencyLevel, TripDay, WakeFeeling } from '$lib/types';
 	import type { PageData } from './$types';
 
@@ -15,6 +25,9 @@
 	let wakeFeeling = $state<WakeFeeling | undefined>(undefined);
 	let active = $state<ContingencyLevel | undefined>(undefined);
 	let progress = $derived(tripProgress(data.days, todayISO()));
+	let planLevel = $derived(active ?? todayDay?.contingencies[0]?.level ?? 'A');
+	let next = $derived(todayDay ? nextAction(todayDay, planLevel) : undefined);
+	let deadline = $derived(todayDay ? protectedDeadline(todayDay, planLevel) : undefined);
 
 	const WAKE_LABEL: Record<WakeFeeling, string> = { rough: 'Cansado', ok: 'Ok', rested: 'Disposto' };
 
@@ -67,10 +80,14 @@
 		<p class="hint">Carregando…</p>
 	{:else if phase === 'before'}
 		<div class="centered">
+			<p class="eyebrow">{data.trip.name} · embarque em {daysUntilStart} dias</p>
 			<span class="hero-emoji">🌏</span>
 			<h1>TravelOS</h1>
 			<p class="countdown">{daysUntilStart}</p>
-			<p class="hint">dias para a viagem — Ásia 2026</p>
+			<p class="hint">dias para a viagem</p>
+			{#if data.days[0]}
+				<p class="departure">📍 {data.days[0].location}, {data.days[0].country} · {data.days[0].date}</p>
+			{/if}
 		</div>
 	{:else if phase === 'after'}
 		<div class="centered">
@@ -83,12 +100,28 @@
 			<div class="progress-track">
 				<div class="progress-fill" style="width: {progress.percent}%"></div>
 			</div>
+			<p class="eyebrow">{data.trip.name} · dia {progress.current} · {dayStatusLabel(todayDay)}</p>
 			<p class="date">
 				Dia {progress.current} de {progress.total} · {todayDay.date}
 			</p>
 			<h1>{todayDay.title}</h1>
 			<p class="location">📍 {todayDay.location} · {todayDay.country}</p>
 		</div>
+
+		{#if next}
+			<div class="next-action" class:past={next.isPast}>
+				<span class="na-label">{next.isPast ? 'Última ação do dia' : 'Próxima ação'}</span>
+				<div class="na-row">
+					<time class="na-time">{next.time}</time>
+					<span class="na-title">{next.title}</span>
+				</div>
+				{#if next.subtitle}<span class="na-subtitle">📍 {next.subtitle}</span>{/if}
+			</div>
+		{/if}
+
+		{#if deadline}
+			<DeadlineCard entry={deadline} />
+		{/if}
 
 		<section class="wake">
 			<p class="label">Como você acordou?</p>
@@ -146,6 +179,19 @@
 		color: var(--color-text-muted);
 		margin: 0;
 	}
+	.eyebrow {
+		font-size: 0.72rem;
+		color: var(--color-text-subtle);
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		margin: 0 0 0.2rem;
+	}
+	.departure {
+		margin: 0.5rem 0 0;
+		color: var(--color-text-muted);
+		font-size: 0.85rem;
+	}
 	.hero {
 		background: linear-gradient(155deg, var(--color-surface-2), var(--color-surface));
 		border: 1px solid var(--color-border);
@@ -156,7 +202,7 @@
 	}
 	.progress-track {
 		height: 0.35rem;
-		background: rgba(255, 255, 255, 0.08);
+		background: rgba(15, 23, 42, 0.08);
 		border-radius: 999px;
 		overflow: hidden;
 		margin-bottom: 0.75rem;
@@ -185,6 +231,49 @@
 		margin: 0;
 		color: var(--color-text-muted);
 		font-size: 0.88rem;
+	}
+	.next-action {
+		display: flex;
+		flex-direction: column;
+		gap: 0.3rem;
+		background: linear-gradient(155deg, var(--color-accent-soft), var(--color-surface));
+		border: 1px solid var(--color-accent);
+		border-radius: var(--radius-lg);
+		padding: 0.9rem 1rem;
+		margin: 0 0 1.1rem;
+		box-shadow: var(--shadow-sm);
+	}
+	.next-action.past {
+		border-color: var(--color-border-strong);
+		background: var(--color-surface);
+	}
+	.na-label {
+		font-size: 0.68rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: var(--color-accent-text);
+	}
+	.next-action.past .na-label {
+		color: var(--color-text-subtle);
+	}
+	.na-row {
+		display: flex;
+		align-items: baseline;
+		gap: 0.6rem;
+	}
+	.na-time {
+		font-size: 1.4rem;
+		font-weight: 800;
+		letter-spacing: -0.01em;
+	}
+	.na-title {
+		font-size: 0.95rem;
+		font-weight: 600;
+	}
+	.na-subtitle {
+		font-size: 0.8rem;
+		color: var(--color-text-muted);
 	}
 	.wake {
 		margin: 0 0 1.25rem;
