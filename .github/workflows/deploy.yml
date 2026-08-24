@@ -36,6 +36,10 @@ jobs:
 
       - uses: actions/configure-pages@v4
 
+      # claude: prevent Jekyll from mangling files/folders starting with _ on GitHub Pages
+      - name: Add .nojekyll
+        run: touch build/.nojekyll
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: build
