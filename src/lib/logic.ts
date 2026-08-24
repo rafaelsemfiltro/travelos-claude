@@ -1,5 +1,13 @@
 // claude: pure helpers shared by the Hoje and Dia views
-import type { Activity, ContingencyLevel, Transport, TripDay, WakeFeeling } from '$lib/types';
+import type {
+	Activity,
+	ActivityStatus,
+	ContingencyLevel,
+	Money,
+	Transport,
+	TripDay,
+	WakeFeeling
+} from '$lib/types';
 
 const WAKE_TO_CONTINGENCY: Record<WakeFeeling, ContingencyLevel> = {
 	rested: 'A',
@@ -52,3 +60,26 @@ export const WAKE_EMOJI: Record<WakeFeeling, string> = {
 	ok: '😐',
 	rested: '💪'
 };
+
+export const TRANSPORT_ICON: Record<Transport['type'], string> = {
+	flight: '✈️',
+	train: '🚄',
+	bus: '🚌',
+	ferry: '⛴️',
+	taxi: '🚕',
+	metro: '🚇',
+	'cable-car': '🚠',
+	other: '🚗'
+};
+
+export const ACTIVITY_STATUS_BADGE: Record<ActivityStatus, string> = {
+	confirmed: '✅',
+	optional: '⚪',
+	pending: '⏳',
+	cancelled: '🚫'
+};
+
+export function formatMoney(money: Money): string {
+	if (money.amount === 0) return 'Grátis';
+	return `${money.currency} ${money.amount.toLocaleString('pt-BR')}`;
+}

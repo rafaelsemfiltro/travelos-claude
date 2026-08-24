@@ -42,7 +42,8 @@ export const transportSchema = z.object({
 	to: z.string(),
 	code: z.string().optional(),
 	status: z.enum(['paid', 'confirmed', 'pending', 'critical']),
-	notes: z.string().optional()
+	notes: z.string().optional(),
+	cost: moneySchema.optional()
 });
 
 export const accommodationSchema = z.object({

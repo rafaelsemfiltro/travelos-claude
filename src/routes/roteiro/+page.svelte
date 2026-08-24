@@ -13,7 +13,10 @@
 
 <main>
 	<a class="back" href="{base}/">← Hoje</a>
-	<h1>Roteiro — Ásia 2026</h1>
+	<h1>Roteiro — {data.trip.name}</h1>
+	{#if data.trip.travelers?.length}
+		<p class="travelers">Viajantes: {data.trip.travelers.join(', ')}</p>
+	{/if}
 	<ul class="days">
 		{#each data.days as day (day.id)}
 			<li>
@@ -45,7 +48,12 @@
 	}
 	h1 {
 		font-size: 1.25rem;
-		margin: 0.75rem 0 1rem;
+		margin: 0.75rem 0 0.25rem;
+	}
+	.travelers {
+		margin: 0 0 1rem;
+		color: #94a3b8;
+		font-size: 0.85rem;
 	}
 	.days {
 		list-style: none;

@@ -41,6 +41,7 @@ export interface Transport {
 	code?: string; // flight/train number
 	status: 'paid' | 'confirmed' | 'pending' | 'critical';
 	notes?: string;
+	cost?: Money;
 }
 
 export interface Accommodation {
