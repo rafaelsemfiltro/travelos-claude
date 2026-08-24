@@ -6,6 +6,7 @@
 	import type { ContingencyLevel } from '$lib/types';
 	import type { PageData } from './$types';
 	import { untrack } from 'svelte';
+	import { base } from '$app/paths';
 
 	let { data }: { data: PageData } = $props();
 	let day = $derived(data.day);
@@ -34,7 +35,7 @@
 </svelte:head>
 
 <main>
-	<a class="back" href="/roteiro">← Roteiro</a>
+	<a class="back" href="{base}/roteiro">← Roteiro</a>
 	<p class="date">D{String(day.dayNumber).padStart(2, '0')} · {day.date}</p>
 	<h1>{day.title}</h1>
 	<p class="location">{day.location} · {day.country}</p>

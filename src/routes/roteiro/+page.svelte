@@ -2,6 +2,7 @@
 <script lang="ts">
 	import { ENERGY_BADGE } from '$lib/logic';
 	import type { PageData } from './$types';
+	import { base } from '$app/paths';
 
 	let { data }: { data: PageData } = $props();
 </script>
@@ -11,12 +12,12 @@
 </svelte:head>
 
 <main>
-	<a class="back" href="/">← Hoje</a>
+	<a class="back" href="{base}/">← Hoje</a>
 	<h1>Roteiro — Ásia 2026</h1>
 	<ul class="days">
 		{#each data.days as day (day.id)}
 			<li>
-				<a href="/dia/{day.id}">
+				<a href="{base}/dia/{day.id}">
 					<span class="num">D{String(day.dayNumber).padStart(2, '0')}</span>
 					<span class="info">
 						<span class="title">{day.title}</span>

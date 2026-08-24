@@ -6,6 +6,7 @@
 	import { findDayByDate, suggestContingency, todayISO, WAKE_EMOJI } from '$lib/logic';
 	import type { ContingencyLevel, TripDay, WakeFeeling } from '$lib/types';
 	import type { PageData } from './$types';
+	import { base } from '$app/paths';
 
 	let { data }: { data: PageData } = $props();
 
@@ -61,7 +62,7 @@
 
 <main>
 	<nav>
-		<a href="/roteiro">Roteiro completo →</a>
+		<a href="{base}/roteiro">Roteiro completo →</a>
 	</nav>
 
 	{#if phase === 'loading'}
