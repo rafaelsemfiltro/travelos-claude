@@ -36,24 +36,33 @@
 	.toggle {
 		display: flex;
 		gap: 0.5rem;
+		background: var(--color-surface);
+		padding: 0.3rem;
+		border-radius: var(--radius-md);
+		border: 1px solid var(--color-border);
 	}
 	button {
 		flex: 1;
-		padding: 0.6rem;
-		border-radius: 0.5rem;
-		border: 1px solid #334155;
-		background: #1e293b;
-		color: #f8fafc;
+		padding: 0.55rem;
+		border-radius: var(--radius-sm);
+		border: none;
+		background: transparent;
+		color: var(--color-text-muted);
 		font-size: 1rem;
-		font-weight: 600;
+		font-weight: 700;
+		transition:
+			background 0.15s ease,
+			color 0.15s ease;
 	}
 	button.active {
-		background: #2563eb;
-		border-color: #2563eb;
+		background: linear-gradient(155deg, var(--color-accent), var(--color-accent-strong));
+		color: #fff;
+		box-shadow: var(--shadow-sm);
 	}
 	.description {
-		margin: 0.5rem 0 0;
-		color: #94a3b8;
+		margin: 0.6rem 0 0;
+		color: var(--color-text-muted);
 		font-size: 0.85rem;
+		line-height: 1.4;
 	}
 </style>

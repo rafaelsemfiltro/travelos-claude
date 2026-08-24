@@ -83,3 +83,22 @@ export function formatMoney(money: Money): string {
 	if (money.amount === 0) return 'Grátis';
 	return `${money.currency} ${money.amount.toLocaleString('pt-BR')}`;
 }
+
+export interface TripProgress {
+	/** 1-based index of today within the trip, or 0 if outside its date range */
+	current: number;
+	total: number;
+	percent: number; // 0-100, clamped
+}
+
+export function tripProgress(days: TripDay[], todayIso: string): TripProgress {
+	const total = days.length;
+	const start = days[0]?.date;
+	const end = days[total - 1]?.date;
+	if (!start || !end || todayIso < start) return { current: 0, total, percent: 0 };
+	if (todayIso > end) return { current: total, total, percent: 100 };
+	const idx = days.findIndex((d) => d.date === todayIso);
+	const current = idx >= 0 ? idx + 1 : 0;
+	const percent = current ? Math.round((current / total) * 100) : 0;
+	return { current, total, percent };
+}

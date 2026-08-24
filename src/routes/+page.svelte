@@ -3,10 +3,9 @@
 	import ContingencyToggle from '$lib/components/ContingencyToggle.svelte';
 	import DayContent from '$lib/components/DayContent.svelte';
 	import { loadDayState, saveDayState } from '$lib/db/dayState';
-	import { findDayByDate, suggestContingency, todayISO, WAKE_EMOJI } from '$lib/logic';
+	import { findDayByDate, suggestContingency, todayISO, tripProgress, WAKE_EMOJI } from '$lib/logic';
 	import type { ContingencyLevel, TripDay, WakeFeeling } from '$lib/types';
 	import type { PageData } from './$types';
-	import { base } from '$app/paths';
 
 	let { data }: { data: PageData } = $props();
 
@@ -15,6 +14,9 @@
 	let daysUntilStart = $state(0);
 	let wakeFeeling = $state<WakeFeeling | undefined>(undefined);
 	let active = $state<ContingencyLevel | undefined>(undefined);
+	let progress = $derived(tripProgress(data.days, todayISO()));
+
+	const WAKE_LABEL: Record<WakeFeeling, string> = { rough: 'Cansado', ok: 'Ok', rested: 'Disposto' };
 
 	$effect(() => {
 		const iso = todayISO();
@@ -61,26 +63,32 @@
 </svelte:head>
 
 <main>
-	<nav>
-		<a href="{base}/roteiro">Roteiro completo →</a>
-	</nav>
-
 	{#if phase === 'loading'}
 		<p class="hint">Carregando…</p>
 	{:else if phase === 'before'}
 		<div class="centered">
+			<span class="hero-emoji">🌏</span>
 			<h1>TravelOS</h1>
-			<p class="hint">Faltam {daysUntilStart} dias para a viagem — Ásia 2026</p>
+			<p class="countdown">{daysUntilStart}</p>
+			<p class="hint">dias para a viagem — Ásia 2026</p>
 		</div>
 	{:else if phase === 'after'}
 		<div class="centered">
+			<span class="hero-emoji">🏁</span>
 			<h1>Viagem concluída</h1>
 			<p class="hint">Bem-vindo de volta 👋</p>
 		</div>
 	{:else if todayDay}
-		<p class="date">D{String(todayDay.dayNumber).padStart(2, '0')} · {todayDay.date}</p>
-		<h1>{todayDay.title}</h1>
-		<p class="location">{todayDay.location} · {todayDay.country}</p>
+		<div class="hero">
+			<div class="progress-track">
+				<div class="progress-fill" style="width: {progress.percent}%"></div>
+			</div>
+			<p class="date">
+				Dia {progress.current} de {progress.total} · {todayDay.date}
+			</p>
+			<h1>{todayDay.title}</h1>
+			<p class="location">📍 {todayDay.location} · {todayDay.country}</p>
+		</div>
 
 		<section class="wake">
 			<p class="label">Como você acordou?</p>
@@ -91,7 +99,8 @@
 						class:active={wakeFeeling === feeling}
 						onclick={() => selectWake(feeling as WakeFeeling)}
 					>
-						{emoji}
+						<span class="emoji">{emoji}</span>
+						<span class="wake-label">{WAKE_LABEL[feeling as WakeFeeling]}</span>
 					</button>
 				{/each}
 			</div>
@@ -107,53 +116,84 @@
 <style>
 	main {
 		min-height: 100dvh;
-		background: #0f172a;
-		color: #f8fafc;
-		font-family: system-ui, sans-serif;
-		padding: 1rem 1rem 5rem;
-	}
-	nav {
-		text-align: right;
-	}
-	nav a {
-		color: #93c5fd;
-		text-decoration: none;
-		font-size: 0.85rem;
+		color: var(--color-text);
+		padding: 1rem 1rem calc(var(--nav-height) + var(--safe-bottom) + 1.5rem);
 	}
 	.centered {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		min-height: 70dvh;
-		gap: 0.5rem;
+		min-height: 85dvh;
+		gap: 0.35rem;
 		text-align: center;
 	}
+	.hero-emoji {
+		font-size: 2.75rem;
+		margin-bottom: 0.25rem;
+	}
+	.countdown {
+		font-size: 3.5rem;
+		font-weight: 800;
+		margin: 0.5rem 0 0;
+		background: linear-gradient(155deg, var(--color-accent-text), var(--color-accent));
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+		line-height: 1;
+	}
 	.hint {
-		color: #94a3b8;
+		color: var(--color-text-muted);
+		margin: 0;
+	}
+	.hero {
+		background: linear-gradient(155deg, var(--color-surface-2), var(--color-surface));
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-lg);
+		padding: 1.1rem 1.15rem 1.25rem;
+		margin: 0.5rem 0 1.25rem;
+		box-shadow: var(--shadow-md);
+	}
+	.progress-track {
+		height: 0.35rem;
+		background: rgba(255, 255, 255, 0.08);
+		border-radius: 999px;
+		overflow: hidden;
+		margin-bottom: 0.75rem;
+	}
+	.progress-fill {
+		height: 100%;
+		background: linear-gradient(90deg, var(--color-accent), var(--color-accent-strong));
+		border-radius: 999px;
+		transition: width 0.3s ease;
 	}
 	.date {
-		margin: 0.75rem 0 0;
-		font-size: 0.75rem;
-		color: #93c5fd;
+		margin: 0;
+		font-size: 0.72rem;
+		color: var(--color-accent-text);
 		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
 	}
 	h1 {
-		font-size: 1.25rem;
-		margin: 0.25rem 0;
+		font-size: 1.5rem;
+		font-weight: 800;
+		margin: 0.3rem 0;
+		letter-spacing: -0.01em;
 	}
 	.location {
-		margin: 0 0 1rem;
-		color: #94a3b8;
-		font-size: 0.85rem;
+		margin: 0;
+		color: var(--color-text-muted);
+		font-size: 0.88rem;
 	}
 	.wake {
-		margin: 1rem 0 1.25rem;
+		margin: 0 0 1.25rem;
 	}
 	.wake .label {
 		font-size: 0.85rem;
-		color: #cbd5e1;
-		margin: 0 0 0.5rem;
+		color: var(--color-text-muted);
+		margin: 0 0 0.6rem;
+		font-weight: 600;
 	}
 	.wake-buttons {
 		display: flex;
@@ -161,14 +201,32 @@
 	}
 	.wake-buttons button {
 		flex: 1;
-		padding: 0.75rem;
-		font-size: 1.5rem;
-		border-radius: 0.5rem;
-		border: 1px solid #334155;
-		background: #1e293b;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.3rem;
+		padding: 0.85rem 0.5rem;
+		border-radius: var(--radius-md);
+		border: 1px solid var(--color-border);
+		background: var(--color-surface);
+		transition:
+			border-color 0.15s ease,
+			background 0.15s ease;
+	}
+	.wake-buttons .emoji {
+		font-size: 1.6rem;
+		line-height: 1;
+	}
+	.wake-buttons .wake-label {
+		font-size: 0.7rem;
+		color: var(--color-text-muted);
+		font-weight: 600;
 	}
 	.wake-buttons button.active {
-		border-color: #2563eb;
-		background: #1e3a8a;
+		border-color: var(--color-accent);
+		background: var(--color-accent-soft);
+	}
+	.wake-buttons button.active .wake-label {
+		color: var(--color-accent-text);
 	}
 </style>

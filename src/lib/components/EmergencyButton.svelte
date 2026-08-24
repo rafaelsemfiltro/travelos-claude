@@ -66,25 +66,26 @@
 	.emergency-btn {
 		position: fixed;
 		right: 1rem;
-		bottom: 1rem;
-		z-index: 9999;
+		bottom: calc(var(--nav-height) + var(--safe-bottom) + 0.85rem);
+		z-index: 550;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 3rem;
-		height: 3rem;
+		width: 3.25rem;
+		height: 3.25rem;
 		border-radius: 50%;
-		background: #dc2626;
+		background: linear-gradient(155deg, #ef4444, #b91c1c);
 		color: #fff;
-		font-size: 1.25rem;
+		font-size: 1.35rem;
 		text-decoration: none;
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+		box-shadow: var(--shadow-lg);
+		border: 2px solid rgba(255, 255, 255, 0.12);
 	}
 	.backdrop {
 		position: fixed;
 		inset: 0;
 		z-index: 9998;
-		background: rgba(0, 0, 0, 0.5);
+		background: rgba(0, 0, 0, 0.55);
 		border: none;
 		padding: 0;
 		cursor: default;
@@ -97,12 +98,14 @@
 		z-index: 9999;
 		max-height: 80dvh;
 		overflow-y: auto;
-		background: #0f172a;
-		color: #f8fafc;
-		font-family: system-ui, sans-serif;
-		border-radius: 1rem 1rem 0 0;
-		padding: 1rem 1.25rem 1.5rem;
-		box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.5);
+		background: var(--color-bg-alt);
+		color: var(--color-text);
+		font-family: var(--font-sans);
+		border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+		padding: 1.1rem 1.25rem calc(1.5rem + var(--safe-bottom));
+		box-shadow: var(--shadow-lg);
+		border: 1px solid var(--color-border);
+		border-bottom: none;
 	}
 	.panel-header {
 		display: flex;
@@ -111,28 +114,39 @@
 		margin-bottom: 0.5rem;
 	}
 	.panel-header h2 {
-		font-size: 1.1rem;
+		font-size: 1.15rem;
 		margin: 0;
+		font-weight: 800;
 	}
 	.close {
-		background: none;
-		border: none;
-		color: #94a3b8;
-		font-size: 1.1rem;
-		padding: 0.25rem;
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		border-radius: 50%;
+		width: 2rem;
+		height: 2rem;
+		color: var(--color-text-muted);
+		font-size: 1rem;
+		padding: 0;
 		cursor: pointer;
 	}
 	section {
 		margin-top: 1rem;
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-md);
+		padding: 0.75rem 0.9rem;
 	}
 	section h3 {
-		font-size: 0.85rem;
-		color: #93c5fd;
-		margin: 0 0 0.4rem;
+		font-size: 0.75rem;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		color: var(--color-accent-text);
+		margin: 0 0 0.5rem;
+		font-weight: 700;
 	}
 	section p {
 		font-size: 0.85rem;
-		color: #cbd5e1;
+		color: var(--color-text-muted);
 		margin: 0;
 	}
 	section ul {
@@ -141,13 +155,15 @@
 		margin: 0;
 		display: flex;
 		flex-direction: column;
-		gap: 0.35rem;
+		gap: 0.45rem;
 	}
 	section li {
 		font-size: 0.85rem;
-		color: #cbd5e1;
+		color: var(--color-text-muted);
 	}
 	section a {
-		color: #93c5fd;
+		color: var(--color-accent-text);
+		text-decoration: none;
+		font-weight: 600;
 	}
 </style>
