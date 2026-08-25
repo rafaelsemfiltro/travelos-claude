@@ -33,6 +33,8 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          PUBLIC_AI_WORKER_URL: https://travelos-claude-guide.rafaelsemfiltro-1.workers.dev
 
       - uses: actions/configure-pages@v4
 

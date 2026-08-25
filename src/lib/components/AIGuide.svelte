@@ -1,12 +1,12 @@
 <!-- claude: floating chat with the "Guia" AI assistant (Cloudflare Worker → OpenAI proxy) -->
 <script lang="ts">
-	import { env } from '$env/dynamic/public';
+	import { PUBLIC_AI_WORKER_URL } from '$env/static/public';
 	import { tick } from 'svelte';
 	import type { AIGuideDayContext } from '$lib/types';
 
 	let { dayContext = null }: { dayContext?: AIGuideDayContext | null } = $props();
 
-	const workerUrl = env.PUBLIC_AI_WORKER_URL;
+	const workerUrl = PUBLIC_AI_WORKER_URL;
 
 	interface ChatMessage {
 		role: 'user' | 'assistant';
