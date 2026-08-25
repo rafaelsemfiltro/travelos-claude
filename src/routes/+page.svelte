@@ -1,5 +1,6 @@
 <!-- claude: Hoje — today's trip day, wake-feeling check-in, adaptive A/B/C display -->
 <script lang="ts">
+	import AIGuide from '$lib/components/AIGuide.svelte';
 	import ContingencyToggle from '$lib/components/ContingencyToggle.svelte';
 	import DayContent from '$lib/components/DayContent.svelte';
 	import DeadlineCard from '$lib/components/DeadlineCard.svelte';
@@ -14,7 +15,7 @@
 		tripProgress,
 		WAKE_EMOJI
 	} from '$lib/logic';
-	import type { ContingencyLevel, TripDay, WakeFeeling } from '$lib/types';
+	import type { AIGuideDayContext, ContingencyLevel, TripDay, WakeFeeling } from '$lib/types';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
@@ -28,6 +29,20 @@
 	let planLevel = $derived(active ?? todayDay?.contingencies[0]?.level ?? 'A');
 	let next = $derived(todayDay ? nextAction(todayDay, planLevel) : undefined);
 	let deadline = $derived(todayDay ? protectedDeadline(todayDay, planLevel) : undefined);
+	let todayContext = $derived<AIGuideDayContext | null>(
+		todayDay
+			? {
+					date: todayDay.date,
+					city: todayDay.location,
+					country: todayDay.country,
+					dayNumber: todayDay.dayNumber,
+					activities: todayDay.activities,
+					transport: todayDay.transports,
+					accommodation: todayDay.accommodation,
+					plans: todayDay.contingencies
+				}
+			: null
+	);
 
 	const WAKE_LABEL: Record<WakeFeeling, string> = { rough: 'Cansado', ok: 'Ok', rested: 'Disposto' };
 
@@ -145,6 +160,8 @@
 		{/if}
 	{/if}
 </main>
+
+<AIGuide dayContext={todayContext} />
 
 <style>
 	main {

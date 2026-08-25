@@ -84,6 +84,18 @@ export interface Trip {
 	days: TripDay[];
 }
 
+// Day context handed to the AI Guide chat (worker/index.js builds the system prompt from this)
+export interface AIGuideDayContext {
+	date: string;
+	city: string;
+	country: string;
+	dayNumber: number;
+	activities: Activity[];
+	transport: Transport[];
+	accommodation?: Accommodation;
+	plans: Contingency[];
+}
+
 // Persisted user state (localStorage)
 export interface DayState {
 	dayId: string;

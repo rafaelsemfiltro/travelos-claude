@@ -66,7 +66,7 @@
 	.emergency-btn {
 		position: fixed;
 		right: 1rem;
-		bottom: calc(var(--nav-height) + var(--safe-bottom) + 0.85rem);
+		bottom: calc(var(--nav-height) + var(--safe-bottom) + 4rem);
 		z-index: 550;
 		display: flex;
 		align-items: center;

@@ -1,11 +1,12 @@
 <!-- claude: day detail — timeline + A/B/C/D toggle -->
 <script lang="ts">
+	import AIGuide from '$lib/components/AIGuide.svelte';
 	import ContingencyToggle from '$lib/components/ContingencyToggle.svelte';
 	import DayContent from '$lib/components/DayContent.svelte';
 	import DeadlineCard from '$lib/components/DeadlineCard.svelte';
 	import { loadDayState, saveDayState } from '$lib/db/dayState';
 	import { ENERGY_BADGE, dayStatusLabel, protectedDeadline } from '$lib/logic';
-	import type { ContingencyLevel } from '$lib/types';
+	import type { AIGuideDayContext, ContingencyLevel } from '$lib/types';
 	import type { PageData } from './$types';
 	import { untrack } from 'svelte';
 	import { base } from '$app/paths';
@@ -15,6 +16,16 @@
 
 	let active = $state<ContingencyLevel>(untrack(() => data.day.contingencies[0]?.level ?? 'A'));
 	let deadline = $derived(protectedDeadline(day, active));
+	let dayContext = $derived<AIGuideDayContext>({
+		date: day.date,
+		city: day.location,
+		country: day.country,
+		dayNumber: day.dayNumber,
+		activities: day.activities,
+		transport: day.transports,
+		accommodation: day.accommodation,
+		plans: day.contingencies
+	});
 
 	$effect(() => {
 		let cancelled = false;
@@ -70,6 +81,8 @@
 		{/if}
 	</nav>
 </main>
+
+<AIGuide {dayContext} />
 
 <style>
 	main {

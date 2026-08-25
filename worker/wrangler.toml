@@ -1,0 +1,6 @@
+name = "travelos-claude-guide"
+main = "index.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+# OPENAI_API_KEY é configurada como secret no dashboard do Cloudflare
