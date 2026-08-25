@@ -1,4 +1,4 @@
-<!-- claude: fixed mobile bottom tab bar — Hoje / Alertas / Roteiro -->
+<!-- claude: fixed mobile bottom tab bar — Hoje / Alertas / Roteiro / Mapas -->
 <script lang="ts">
 	import { page } from '$app/state';
 	import { base } from '$app/paths';
@@ -6,11 +6,13 @@
 	const homeHref = `${base}/`;
 	const alertasHref = `${base}/alertas`;
 	const roteiroHref = `${base}/roteiro`;
+	const mapasHref = `${base}/mapas`;
 
 	let path = $derived(page.url.pathname);
 	let onHome = $derived(path === homeHref || path === base || path === `${base}`);
 	let onAlerts = $derived(path.startsWith(alertasHref));
 	let onRoteiro = $derived(path.startsWith(roteiroHref) || path.startsWith(`${base}/dia`));
+	let onMapas = $derived(path.startsWith(mapasHref));
 </script>
 
 <nav class="bottom-nav" aria-label="Navegação principal">
@@ -23,8 +25,12 @@
 		<span class="label">Alertas</span>
 	</a>
 	<a href={roteiroHref} class:active={onRoteiro} aria-current={onRoteiro ? 'page' : undefined}>
-		<span class="icon">🗺️</span>
+		<span class="icon">📅</span>
 		<span class="label">Roteiro</span>
+	</a>
+	<a href={mapasHref} class:active={onMapas} aria-current={onMapas ? 'page' : undefined}>
+		<span class="icon">🗺️</span>
+		<span class="label">Mapas</span>
 	</a>
 </nav>
 
