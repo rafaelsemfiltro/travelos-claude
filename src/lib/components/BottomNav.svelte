@@ -1,4 +1,4 @@
-<!-- claude: fixed mobile bottom tab bar — Hoje / Alertas / Roteiro / Mapas -->
+<!-- claude: fixed mobile bottom tab bar — Hoje / Alertas / Roteiro / Mapas / Criar -->
 <script lang="ts">
 	import { page } from '$app/state';
 	import { base } from '$app/paths';
@@ -7,12 +7,14 @@
 	const alertasHref = `${base}/alertas`;
 	const roteiroHref = `${base}/roteiro`;
 	const mapasHref = `${base}/mapas`;
+	const creatorHref = `${base}/creator`;
 
 	let path = $derived(page.url.pathname);
 	let onHome = $derived(path === homeHref || path === base || path === `${base}`);
 	let onAlerts = $derived(path.startsWith(alertasHref));
 	let onRoteiro = $derived(path.startsWith(roteiroHref) || path.startsWith(`${base}/dia`));
 	let onMapas = $derived(path.startsWith(mapasHref));
+	let onCreator = $derived(path.startsWith(creatorHref));
 </script>
 
 <nav class="bottom-nav" aria-label="Navegação principal">
@@ -31,6 +33,10 @@
 	<a href={mapasHref} class:active={onMapas} aria-current={onMapas ? 'page' : undefined}>
 		<span class="icon">🗺️</span>
 		<span class="label">Mapas</span>
+	</a>
+	<a href={creatorHref} class:active={onCreator} aria-current={onCreator ? 'page' : undefined}>
+		<span class="icon">🎬</span>
+		<span class="label">Criar</span>
 	</a>
 </nav>
 
@@ -57,7 +63,7 @@
 		gap: 0.2rem;
 		text-decoration: none;
 		color: var(--color-text-subtle);
-		font-size: 0.7rem;
+		font-size: 0.65rem;
 		font-weight: 600;
 		transition: color 0.15s ease;
 	}
@@ -65,7 +71,7 @@
 		color: var(--color-accent-text);
 	}
 	.icon {
-		font-size: 1.3rem;
+		font-size: 1.2rem;
 		line-height: 1;
 	}
 </style>
