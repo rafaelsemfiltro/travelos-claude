@@ -1,13 +1,15 @@
-<!-- claude: fixed mobile bottom tab bar — Hoje / Roteiro -->
+<!-- claude: fixed mobile bottom tab bar — Hoje / Alertas / Roteiro -->
 <script lang="ts">
 	import { page } from '$app/state';
 	import { base } from '$app/paths';
 
 	const homeHref = `${base}/`;
+	const alertasHref = `${base}/alertas`;
 	const roteiroHref = `${base}/roteiro`;
 
 	let path = $derived(page.url.pathname);
 	let onHome = $derived(path === homeHref || path === base || path === `${base}`);
+	let onAlerts = $derived(path.startsWith(alertasHref));
 	let onRoteiro = $derived(path.startsWith(roteiroHref) || path.startsWith(`${base}/dia`));
 </script>
 
@@ -15,6 +17,10 @@
 	<a href={homeHref} class:active={onHome} aria-current={onHome ? 'page' : undefined}>
 		<span class="icon">🏠</span>
 		<span class="label">Hoje</span>
+	</a>
+	<a href={alertasHref} class:active={onAlerts} aria-current={onAlerts ? 'page' : undefined}>
+		<span class="icon">🔔</span>
+		<span class="label">Alertas</span>
 	</a>
 	<a href={roteiroHref} class:active={onRoteiro} aria-current={onRoteiro ? 'page' : undefined}>
 		<span class="icon">🗺️</span>
